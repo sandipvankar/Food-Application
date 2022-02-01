@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    tools:context=".MainActivity"
+    android:background="@drawable/backgroudimg2"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bgopacity"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="194dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/todo"
+            android:padding="8dp"
+            app:srcCompat="@drawable/foodlogo2"
+            app:tint="#B59999" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/fast_food"
+            android:textColor="#B18787"
+            android:textSize="60sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnlogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/btn_gradient"
+            android:padding="8dp"
+            android:text="@string/login"
+            android:textColor="#F4EFEF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn2signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_gradient"
+            android:padding="8dp"
+            android:text="@string/register"
+            android:textColor="#E6D9D9"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textviewSkip"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Skip"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/view5"
+            android:layout_width="50dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="-10dp"
+            android:background="#000000" />
+
+    </LinearLayout>
+
+</RelativeLayout>
