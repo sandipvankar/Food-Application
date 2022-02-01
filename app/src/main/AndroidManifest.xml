@@ -11,7 +11,9 @@
         android:theme="@style/Theme.FoodApp">
         <activity
             android:name="com.example.DetailActivity"
-            android:exported="true" />
+            android:exported="true"/>
+
+
         <activity
             android:name="com.example.OrderActivity"
             android:exported="true" />
