@@ -1,6 +1,8 @@
 package com.example;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,6 +27,26 @@ public class DetailActivity extends AppCompatActivity {
         binding.namelbl.setText(name);
         binding.descriptilbl.setText(description);
 
+        DBHelper helper = new DBHelper(this);
+
+        binding.orderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              boolean isInserted  =  helper.insertOrder(binding.namelbl.getText().toString(),
+                        binding.phoneBox.getText().toString(),
+                        pr,
+                        image,
+                        name,
+                        description,
+                        Integer.parseInt(binding.quantity.getText().toString())
+
+                );
+              if(isInserted)
+                  Toast.makeText(DetailActivity.this, "Order Success", Toast.LENGTH_SHORT).show();
+              else
+                  Toast.makeText(DetailActivity.this, "Sorry Order Incorrect", Toast.LENGTH_SHORT).show();
+            }
+        });
          }
     catch(Exception e)
         {

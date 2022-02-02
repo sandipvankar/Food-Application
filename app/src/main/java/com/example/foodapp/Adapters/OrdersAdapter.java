@@ -33,12 +33,15 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-          final OrderModel model = list.get(position);
-          holder.orderImage.setImageResource(model.getOrderImage());
-          holder.itemName.setText(model.getItemName());
-          holder.orderNumber.setText(model.getOrderNumber());
-          holder.price.setText(model.getPrice());
-
+        try {
+            final OrderModel model = list.get(position);
+            holder.orderImage.setImageResource(model.getOrderImage());
+            holder.itemName.setText(model.getItemName());
+            holder.orderNumber.setText(model.getOrderNumber());
+            holder.price.setText(model.getPrice());
+        }
+        catch(Exception e)
+        {}
     }
 
     @Override
