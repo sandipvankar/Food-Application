@@ -1,6 +1,8 @@
 package com.example.foodapp.Adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +37,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        try {
+
             final OrderModel model = list.get(position);
             holder.orderImage.setImageResource(model.getOrderImage());
             holder.itemName.setText(model.getItemName());
@@ -45,17 +47,44 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
             holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View view) {
-                    DBHelper helper= new DBHelper(context);
-                    if(helper.deleteOrder(model.getOrderNumber()) > 0) {
-                        Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
-                    }
+                         new AlertDialog.Builder(context)
+                           //Set Title Delete Item
+                           .setTitle("Delete Item")
+
+                           //Set the message show  for delete item
+                            .setMessage("Are you sure to delete this Item?")
+
+                           //Set Cancelable false
+                           .setCancelable(false)
+
+                           // // Set the positive button with yes name
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    DBHelper helper=new DBHelper(context);
+                                    if (helper.deleteOrder(model.getOrderNumber()) > 0) {
+                                        Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            })
+
+                             // Set the Negative button with No Name
+                           .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                               @Override
+                               public void onClick(DialogInterface dialogInterface, int i) {
+
+                               }
+                           }).show();
+
+
                     return false;
                 }
             });
 
-        }
-        catch (NullPointerException e)
-         { }
+
+
         }
 
 
