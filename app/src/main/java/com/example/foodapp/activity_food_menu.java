@@ -25,7 +25,7 @@ public class activity_food_menu extends AppCompatActivity {
         @Override
         protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("Food_Menu_List");
+        getSupportActionBar().setTitle("Menu");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         binding = ActivityFoodMenuBinding.inflate(getLayoutInflater());

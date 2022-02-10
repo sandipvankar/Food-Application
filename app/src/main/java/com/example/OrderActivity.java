@@ -17,6 +17,7 @@ public class OrderActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("Orders List");
         binding= ActivityOrderBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 

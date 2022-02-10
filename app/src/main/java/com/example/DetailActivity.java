@@ -14,6 +14,7 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("Order Detail");
         binding =ActivityDetailBinding.inflate(getLayoutInflater());
 
         DBHelper helper = new DBHelper(this);
