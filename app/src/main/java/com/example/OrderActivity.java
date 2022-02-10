@@ -32,4 +32,5 @@ public class OrderActivity extends AppCompatActivity {
         binding.orderRecyclerView.setLayoutManager(layoutManager);
 
     }
+
 }

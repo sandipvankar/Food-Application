@@ -25,7 +25,7 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL( "create table orders " +
                                 "(id integer primary key autoincrement," +
                                 "name text,"+
-                                "phone text,"+
+                                  "phone text,"+
                                 "price int,"+
                                 "image int,"+
                                 "quantity int,"+
@@ -82,4 +82,10 @@ public class DBHelper extends SQLiteOpenHelper {
         database.close();
         return orders;
     }
+
+    public int deleteOrder(String id) {
+        SQLiteDatabase database = this.getWritableDatabase();
+        return database.delete("orders", "id"+id , null);
+    }
+         
 }
