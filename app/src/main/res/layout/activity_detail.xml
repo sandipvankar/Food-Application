@@ -137,7 +137,6 @@
                 android:id="@+id/pricedet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="15"
                 android:textColor="#C60707"
                 android:textSize="20sp"
                 android:textStyle="bold" />
