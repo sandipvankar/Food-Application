@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper {
    final static String DBName="FoodDatabase.db";
-   final  static int v=3;
+    final  static int v=5;
 
     public DBHelper(@Nullable Context context) {
         super(context, DBName, null,v );
@@ -22,7 +22,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL( "create table orders " +
+        sqLiteDatabase.execSQL( "create table  orders" +
                                 "(id integer primary key autoincrement," +
                                 "name text,"+
                                   "phone text,"+
@@ -32,12 +32,14 @@ public class DBHelper extends SQLiteOpenHelper {
                                 "description text,"+
                                 "foodname text)"
                                 );
+        sqLiteDatabase.execSQL ( " create table users(username Text primary key ,mobileNo int ,email Text,password Text)");
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("Drop table if exists orders");
+        sqLiteDatabase.execSQL("Drop table if exists users");
         onCreate(sqLiteDatabase);
     }
 
@@ -60,6 +62,42 @@ public class DBHelper extends SQLiteOpenHelper {
         else {
             return true;
         }
+
+    }
+    public boolean insertUserData(String username,int mobile,String email, String password){
+        SQLiteDatabase database= this.getReadableDatabase();
+        ContentValues values= new ContentValues();
+
+        values.put("username", username);
+        values.put("mobileNo", mobile);
+        values.put("email", email);
+        values.put("password",password);
+
+        long id=database.insert("users","null", values);
+        if (id==-1)
+            return  false;
+        else
+            return true;
+
+    }
+    //CheckUsername function
+    public Boolean checkusername(String username) {
+        SQLiteDatabase database= this.getWritableDatabase();
+        Cursor cursor= database.rawQuery("select * from users where username=? ", new String[] {username});
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+
+    }
+    //CheckUsername&Password function
+    public Boolean checkusernamepassword(String username, String password) {
+        SQLiteDatabase database= this.getWritableDatabase();
+        Cursor cursor= database.rawQuery("select * from users where username=? and password=?", new String[] {username,password});
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
 
     }
 

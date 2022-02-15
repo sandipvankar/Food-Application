@@ -9,6 +9,7 @@ public class OrderModel {
         this.itemName = itemName;
         this.price = price;
         this.orderNumber = orderNumber;
+
     }
 
     public int getOrderImage() {

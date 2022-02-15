@@ -17,6 +17,7 @@ public class DetailActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Order Detail");
         binding =ActivityDetailBinding.inflate(getLayoutInflater());
 
+
         DBHelper helper = new DBHelper(this);
 
 
@@ -37,19 +38,23 @@ public class DetailActivity extends AppCompatActivity {
                 binding.orderButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        boolean isInserted = helper.insertOrder(binding.namelbl.getText().toString(),
-                                binding.phoneBox.getText().toString(),
-                                pr,
-                                image,
-                                name,
-                                description,
-                                Integer.parseInt(binding.quantity.getText().toString())
 
-                        );
-                        if (isInserted)
-                            Toast.makeText(DetailActivity.this, "Order Success", Toast.LENGTH_SHORT).show();
-                        else
-                            Toast.makeText(DetailActivity.this, "Sorry Order Incorrect", Toast.LENGTH_SHORT).show();
+                        //Make Validation
+
+                            boolean isInserted = helper.insertOrder(binding.namelbl.getText().toString(),
+                                    binding.phoneBox.getText().toString(),
+                                    pr,
+                                    image,
+                                    name,
+                                    description,
+                                    Integer.parseInt(binding.quantity.getText().toString())
+
+                            );
+                            if (isInserted)
+                                Toast.makeText(DetailActivity.this, "Order Success", Toast.LENGTH_SHORT).show();
+                            else
+                                Toast.makeText(DetailActivity.this, "Sorry Order Incorrect", Toast.LENGTH_SHORT).show();
+
                     }
                 });
             } catch (Exception e) {

@@ -24,7 +24,7 @@
             android:orientation="vertical">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
+                android:id="@+id/psimage1"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
@@ -51,7 +51,7 @@
                 android:background="#000000" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/personName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="23dp"
@@ -78,7 +78,7 @@
                 android:padding="10dp" />
 
             <EditText
-                android:id="@+id/editTextTextEmailAddress"
+                android:id="@+id/username2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
@@ -91,7 +91,7 @@
                 android:padding="10dp" />
 
             <EditText
-                android:id="@+id/editTextTextPassword"
+                android:id="@+id/Password2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
@@ -104,7 +104,7 @@
                 android:padding="10dp" />
 
             <Button
-                android:id="@+id/btnregister"
+                android:id="@+id/btnlogin1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
@@ -180,7 +180,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/textViewlogin"
+                android:id="@+id/textView7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"

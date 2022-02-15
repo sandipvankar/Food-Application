@@ -46,21 +46,22 @@
                     android:textColor="#D3840c"
                     android:textSize="60sp"
                     android:textStyle="bold" />
+
                 <EditText
-                    android:id="@+id/editTextTextEmailAddress"
+                    android:id="@+id/username2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/backgroundeditview"
                     android:ems="10"
                     android:gravity="center"
-                    android:hint="Email "
+                    android:hint="UserName"
                     android:inputType="textEmailAddress"
                     android:minHeight="48dp"
                     android:padding="10dp" />
 
                 <EditText
-                    android:id="@+id/editTextTextPassword"
+                    android:id="@+id/Password2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -73,12 +74,12 @@
                     android:padding="10dp" />
 
                 <Button
-                    android:id="@+id/btnregister"
+                    android:id="@+id/btnlogin1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/btn_gradient"
-                    android:text="sign in"
+                    android:text="Login"
                     android:textColor="#FDFCFC"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -149,7 +150,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/textViewlogin"
+                    android:id="@+id/textView7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="30dp"
