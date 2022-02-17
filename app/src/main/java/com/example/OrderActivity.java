@@ -18,6 +18,7 @@ public class OrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("Orders List");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         binding= ActivityOrderBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 

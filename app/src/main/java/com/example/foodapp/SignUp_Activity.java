@@ -45,7 +45,7 @@ public class SignUp_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String nm= name.getText().toString();
-                int mo=Integer.parseInt( mob.getText().toString());
+                String mo=mob.getText().toString();
                 String em= email.getText().toString();
                 String ps= pass.getText().toString();
 

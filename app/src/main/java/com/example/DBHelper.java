@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper {
    final static String DBName="FoodDatabase.db";
-    final  static int v=5;
+    final  static int v=7;
 
     public DBHelper(@Nullable Context context) {
         super(context, DBName, null,v );
@@ -32,7 +32,7 @@ public class DBHelper extends SQLiteOpenHelper {
                                 "description text,"+
                                 "foodname text)"
                                 );
-        sqLiteDatabase.execSQL ( " create table users(username Text primary key ,mobileNo int ,email Text,password Text)");
+        sqLiteDatabase.execSQL ( " create table users(username Text primary key ,mobileNo Text ,email Text,password Text)");
 
     }
 
@@ -64,7 +64,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
     }
-    public boolean insertUserData(String username,int mobile,String email, String password){
+    public boolean insertUserData(String username, String mobile, String email, String password){
         SQLiteDatabase database= this.getReadableDatabase();
         ContentValues values= new ContentValues();
 
