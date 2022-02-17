@@ -64,7 +64,7 @@ public class MainAdapter extends  RecyclerView.Adapter<MainAdapter.viewholder> {
 
     public class viewholder extends RecyclerView.ViewHolder {
         ImageView foodimg;
-        TextView mainName,price,description;
+        TextView mainName,price,description,name,mobile;
 
         public viewholder(@NonNull View itemView) {
             super(itemView);
@@ -72,6 +72,9 @@ public class MainAdapter extends  RecyclerView.Adapter<MainAdapter.viewholder> {
             mainName = itemView.findViewById(R.id.textviewname);
             price = itemView.findViewById(R.id.orderprice);
             description = itemView.findViewById(R.id.descrption);
+
+            name = itemView.findViewById(R.id.name1);
+            mobile = itemView.findViewById(R.id.mobile1);
         }
     }
 }

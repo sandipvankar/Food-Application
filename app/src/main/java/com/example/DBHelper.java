@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper {
    final static String DBName="FoodDatabase.db";
-    final  static int v=7;
+    final  static int v=11;
 
     public DBHelper(@Nullable Context context) {
         super(context, DBName, null,v );
@@ -29,8 +29,8 @@ public class DBHelper extends SQLiteOpenHelper {
                                 "price int,"+
                                 "image int,"+
                                 "quantity int,"+
-                                "description text,"+
-                                "foodname text)"
+                                "foodname text,"+
+                                "description text)"
                                 );
         sqLiteDatabase.execSQL ( " create table users(username Text primary key ,mobileNo Text ,email Text,password Text)");
 
@@ -51,8 +51,8 @@ public class DBHelper extends SQLiteOpenHelper {
             values.put("phone",phone);
             values.put("price",price);
             values.put("image",image);
-            values.put("description",desc);
             values.put("foodname",foodname);
+            values.put("description",desc);
             values.put("quantity", quantity);
 
         long id=database.insert("orders","null", values);
@@ -104,7 +104,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public ArrayList<OrderModel> getOrder() {
         ArrayList<OrderModel> orders=new ArrayList<>();
         SQLiteDatabase database = this.getWritableDatabase();
-        Cursor cursor = database.rawQuery("Select id,foodname,image,price from orders ", null);
+        Cursor cursor = database.rawQuery("Select id,description,image,price,name,phone from orders ", null);
         if(cursor.moveToFirst()) {
             while (cursor.moveToNext()) {
                 OrderModel model= new OrderModel();
@@ -113,6 +113,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 model.setOrderImage(cursor.getInt(2));
                 model.setPrice(cursor.getInt(3) +"");
 
+                model.setName(cursor.getString(4));
+                model.setNumber(cursor.getString(5));
                 orders.add(model);
             }
         }

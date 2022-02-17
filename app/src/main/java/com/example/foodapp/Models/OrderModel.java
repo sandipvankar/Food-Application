@@ -2,13 +2,15 @@ package com.example.foodapp.Models;
 
 public class OrderModel {
         int orderImage;
-        String itemName,price,orderNumber;
+        String itemName,price,orderNumber,name,number;
 
     public OrderModel() {
         this.orderImage = orderImage;
         this.itemName = itemName;
         this.price = price;
         this.orderNumber = orderNumber;
+        this.name=name;
+        this.number=number;
 
     }
 
@@ -43,4 +45,10 @@ public class OrderModel {
     public void setOrderNumber(String orderNumber) {
         this.orderNumber = orderNumber;
     }
+
+    public String getName() { return name; }
+    public void setName (String name) {this.name = name;}
+
+    public String getNumber() { return number; }
+    public void setNumber (String name) {this.number = number;}
 }

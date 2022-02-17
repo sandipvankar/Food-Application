@@ -43,6 +43,8 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
             holder.itemName.setText(model.getItemName());
             holder.orderNumber.setText(model.getOrderNumber());
             holder.price.setText(model.getPrice());
+            holder.name.setText(model.getName());
+            holder.mobile.setText(model.getNumber());
 
             holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
@@ -96,7 +98,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
 
     public class viewHolder extends RecyclerView.ViewHolder {
         ImageView  orderImage;
-        TextView itemName, price,orderNumber;
+        TextView itemName, price,orderNumber,name,mobile;
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);
@@ -104,6 +106,9 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
             itemName = itemView.findViewById(R.id.orderitemname);
             orderNumber = itemView.findViewById(R.id.ordernumber);
             price = itemView.findViewById(R.id.orderprice);
+
+            name = itemView.findViewById(R.id.name1);
+            mobile = itemView.findViewById(R.id.mobile1);
         }
     }
 }
