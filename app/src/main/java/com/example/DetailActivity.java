@@ -1,10 +1,12 @@
 package com.example;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.foodapp.databinding.ActivityDetailBinding;
@@ -16,8 +18,11 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("Order Detail");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        binding =ActivityDetailBinding.inflate(getLayoutInflater());
+
+        ActionBar actionBar= getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+         binding =ActivityDetailBinding.inflate(getLayoutInflater());
 
 
 
@@ -65,9 +70,12 @@ public class DetailActivity extends AppCompatActivity {
                      }
                 });
 
-
-
-
-
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home: this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
