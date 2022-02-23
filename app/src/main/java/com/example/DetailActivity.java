@@ -3,7 +3,6 @@ package com.example;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
@@ -13,7 +12,7 @@ import com.example.foodapp.databinding.ActivityDetailBinding;
 
 public class DetailActivity extends AppCompatActivity {
         ActivityDetailBinding binding;
-        TextView nm,ph;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +22,6 @@ public class DetailActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
          binding =ActivityDetailBinding.inflate(getLayoutInflater());
-
-
 
 
             setContentView(binding.getRoot());
