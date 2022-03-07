@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper {
    final static String DBName="FoodDatabase.db";
-    final  static int v=11;
+    final  static int v=18;
 
     public DBHelper(@Nullable Context context) {
         super(context, DBName, null,v );
