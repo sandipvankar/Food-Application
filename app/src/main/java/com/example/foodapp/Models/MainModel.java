@@ -2,13 +2,23 @@ package com.example.foodapp.Models;
 
 public class MainModel {
     int image;
-    String name,price,description;
+    String name,price,description,pid;
 
-    public MainModel(int image, String name, String price, String description) {
+    public MainModel(int image,String pid, String name, String price, String description) {
         this.image = image;
+        this.pid = pid;
         this.name = name;
         this.price = price;
         this.description = description;
+
+    }
+
+    public String getPid() {
+        return pid;
+    }
+
+    public void setPid(String pid) {
+        this.pid = pid;
     }
 
     public int getImage() {
@@ -41,5 +51,6 @@ public class MainModel {
 
     public void setDescription(String description) {
         this.description = description;
+
     }
 }

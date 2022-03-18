@@ -32,6 +32,7 @@ public class MainAdapter extends  RecyclerView.Adapter<MainAdapter.viewholder> {
     public viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(context).inflate(R.layout.sample_mainfood, parent, false);
         return new viewholder(view);
+
     }
 
     @Override
@@ -41,6 +42,10 @@ public class MainAdapter extends  RecyclerView.Adapter<MainAdapter.viewholder> {
         holder.mainName.setText(model.getName());
         holder.price.setText(model.getPrice());
         holder.description.setText(model.getDescription());
+        holder.pid.setText(model.getPid());
+
+
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +55,7 @@ public class MainAdapter extends  RecyclerView.Adapter<MainAdapter.viewholder> {
                 intent.putExtra("price", model.getPrice());
                 intent.putExtra("description", model.getDescription());
                 intent.putExtra("name", model.getName());
+                intent.putExtra("pid" ,model.getPid());
 
 
                 context.startActivity(intent);
@@ -64,7 +70,7 @@ public class MainAdapter extends  RecyclerView.Adapter<MainAdapter.viewholder> {
 
     public class viewholder extends RecyclerView.ViewHolder {
         ImageView foodimg;
-        TextView mainName,price,description,name,mobile;
+        TextView mainName,price,description,name,mobile,pid;
 
         public viewholder(@NonNull View itemView) {
             super(itemView);
@@ -73,8 +79,10 @@ public class MainAdapter extends  RecyclerView.Adapter<MainAdapter.viewholder> {
             price = itemView.findViewById(R.id.orderprice);
             description = itemView.findViewById(R.id.descrption);
 
+            pid = itemView.findViewById(R.id.productid);
             name = itemView.findViewById(R.id.name1);
             mobile = itemView.findViewById(R.id.mobile1);
+
         }
     }
 }

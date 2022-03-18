@@ -2,7 +2,7 @@ package com.example.foodapp.Models;
 
 public class OrderModel {
         int orderImage;
-        String itemName,price,orderNumber,name,number;
+        String itemName,price,orderNumber,name,number,pid;
 
     public OrderModel() {
         this.orderImage = orderImage;
@@ -11,8 +11,10 @@ public class OrderModel {
         this.orderNumber = orderNumber;
         this.name=name;
         this.number=number;
+        this.pid=pid;
 
     }
+
 
     public int getOrderImage() {
         return orderImage;
@@ -51,4 +53,12 @@ public class OrderModel {
 
     public String getNumber() { return number; }
     public void setNumber (String name) {this.number = number;}
+
+    public String getPid() {
+        return pid;
+    }
+
+    public void setPid(String pid) {
+        this.pid = pid;
+    }
 }

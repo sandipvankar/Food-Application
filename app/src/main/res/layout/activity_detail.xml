@@ -47,7 +47,9 @@
                     android:id="@+id/minus"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    app:srcCompat="@drawable/minus" />
+                    android:onClick="descrement"
+                    app:srcCompat="@drawable/minus"
+                    tools:ignore="TouchTargetSizeCheck" />
 
                 <TextView
                     android:id="@+id/quantity"
@@ -63,7 +65,8 @@
                     android:id="@+id/add"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    app:srcCompat="@drawable/add" />
+                    app:srcCompat="@drawable/add"
+                    android:onClick="increment"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -76,6 +79,15 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/proId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textColor="#FFFFFF" />
 
         <TextView
             android:id="@+id/descriptilbl"

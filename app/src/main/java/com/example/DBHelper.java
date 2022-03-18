@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper {
    final static String DBName="FoodDatabase.db";
-    final  static int v=18;
+    final  static int v=21;
 
     public DBHelper(@Nullable Context context) {
         super(context, DBName, null,v );
@@ -24,6 +24,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL( "create table  orders" +
                                 "(id integer primary key autoincrement," +
+                                "pid int,"+
+                                "username text," +
                                 "name text,"+
                                   "phone text,"+
                                 "price int,"+
@@ -32,7 +34,7 @@ public class DBHelper extends SQLiteOpenHelper {
                                 "foodname text,"+
                                 "description text)"
                                 );
-        sqLiteDatabase.execSQL ( " create table users(username Text primary key ,mobileNo Text ,email Text,password Text)");
+        sqLiteDatabase.execSQL ( " create table users(uid integer primary key autoincrement,username Text ,mobileNo Text ,email Text,password Text)");
 
     }
 
@@ -43,11 +45,12 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public boolean insertOrder(String name,String phone,int price, int image, String desc, String foodname, int quantity){
+    public boolean insertOrder(String name,int pid,String username,String phone,int price, int image, String desc, String foodname, int quantity){
         SQLiteDatabase database= getReadableDatabase();
         ContentValues values= new ContentValues();
-
+            values.put("username",username);
             values.put("name",name);
+            values.put("pid",pid);
             values.put("phone",phone);
             values.put("price",price);
             values.put("image",image);
@@ -94,17 +97,25 @@ public class DBHelper extends SQLiteOpenHelper {
     public Boolean checkusernamepassword(String username, String password) {
         SQLiteDatabase database= this.getWritableDatabase();
         Cursor cursor= database.rawQuery("select * from users where username=? and password=?", new String[] {username,password});
-        if(cursor.getCount()>0)
+        if(cursor.getCount()>0) {
+
+
             return true;
+
+
+        }
         else
             return false;
 
     }
 
-    public ArrayList<OrderModel> getOrder() {
+
+    public ArrayList<OrderModel> getOrder(String str) {
         ArrayList<OrderModel> orders=new ArrayList<>();
         SQLiteDatabase database = this.getWritableDatabase();
-        Cursor cursor = database.rawQuery("Select id,description,image,price,name,phone from orders ", null);
+
+
+        Cursor cursor = database.rawQuery("Select id,description,image,price,name,phone from orders where username=?", new String[] {str});
         if(cursor.moveToFirst()) {
             do {
                 OrderModel model= new OrderModel();
@@ -115,6 +126,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
                 model.setName(cursor.getString(4));
                 model.setNumber(cursor.getString(5));
+
                 orders.add(model);
             }while (cursor.moveToNext());
         }
@@ -126,6 +138,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public int deleteOrder(String id) {
         SQLiteDatabase database = this.getWritableDatabase();
         return database.delete("orders", "id="+id , null);
+
     }
-         
+
 }

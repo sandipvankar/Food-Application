@@ -71,18 +71,6 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textviewSkip"
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="Skip"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            tools:ignore="HardcodedText" />
-
         <View
             android:id="@+id/view5"
             android:layout_width="50dp"

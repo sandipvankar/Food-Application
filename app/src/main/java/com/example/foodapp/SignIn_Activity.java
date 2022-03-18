@@ -16,13 +16,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.DBHelper;
 
 public class SignIn_Activity extends AppCompatActivity {
-        TextView textView,fb,google,username,password;
+        TextView textView,fb,google,username,password,us;
         Button login;
         DBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+
 
 
         getSupportActionBar().setTitle("Sign In");
@@ -36,6 +37,7 @@ public class SignIn_Activity extends AppCompatActivity {
         username = (TextView) findViewById(R.id.username2);
         password = (TextView) findViewById(R.id.Password2);
         login = (Button) findViewById(R.id.btnlogin1);
+
         DB= new DBHelper(this);
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -49,9 +51,12 @@ public class SignIn_Activity extends AppCompatActivity {
                 else {
                     Boolean  checkuserpass = DB.checkusernamepassword(user,pass);
                     if (checkuserpass==true){
-                        Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), activity_food_menu.class);
-                        startActivity(intent);
+                    //      Toast.makeText(getApplicationContext(), "Username=" + user, Toast.LENGTH_SHORT).show();
+                          Intent intent = new Intent(getApplicationContext(), activity_food_menu.class);
+                           //pass username
+
+                             intent.putExtra("uid", user);
+                             startActivity(intent);
                     }
                     else
                     {
@@ -96,4 +101,5 @@ public class SignIn_Activity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

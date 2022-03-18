@@ -23,6 +23,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
     ArrayList<OrderModel> list;
     Context context;
 
+
     public OrdersAdapter(ArrayList<OrderModel> list, Context context) {
         this.list = list;
         this.context = context;
@@ -46,6 +47,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
             holder.name.setText(model.getName());
             holder.mobile.setText(model.getNumber());
 
+
             holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View view) {
@@ -66,9 +68,13 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
                                     DBHelper helper=new DBHelper(context);
                                     if (helper.deleteOrder(model.getOrderNumber()) > 0) {
                                         Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                                        notifyDataSetChanged();
+
+
                                     } else {
                                         Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                                     }
+
                                 }
                             })
 
@@ -100,6 +106,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
         ImageView  orderImage;
         TextView itemName, price,orderNumber,name,mobile;
 
+
         public viewHolder(@NonNull View itemView) {
             super(itemView);
             orderImage = itemView.findViewById(R.id.orderimage);
@@ -107,8 +114,11 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
             orderNumber = itemView.findViewById(R.id.ordernumber);
             price = itemView.findViewById(R.id.orderprice);
 
+
+
             name = itemView.findViewById(R.id.name1);
             mobile = itemView.findViewById(R.id.mobile1);
+
         }
     }
 }
